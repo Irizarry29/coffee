@@ -1,9 +1,9 @@
 # Recipe for each beverage.
 
 coffee_menu = {
-    "cappuccino": 3.00,
-    "espresso": 1.50,
-    "latte": 2.50,
+    "Cappuccino": 3.00,
+    "Espresso": 1.50,
+    "Latte": 2.50,
 }
 
 coffee_recipes = {
@@ -104,6 +104,7 @@ def get_money():
 
 
 def get_price(coffee):
+    """return the price of the coffee"""
     global coffee_menu
     price = coffee_menu[coffee]
     return price
@@ -121,7 +122,6 @@ def handle_payment(price):
     money = get_money()
     # 6. Check transaction successful
     if money < price:
-        print("Insufficient funds")
         print(f"Here is your money back ${money:.2f}")
         return False
     if money > price:
