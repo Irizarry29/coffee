@@ -1,24 +1,24 @@
 # Recipe for each beverage.
 
 coffee_menu = {
-    "cappuccino": 3.00,
-    "espresso": 1.50,
-    "latte": 2.50,
+    "Cappuccino": 3.00,
+    "Espresso": 1.50,
+    "Latte": 2.50,
 }
 
 coffee_recipes = {
-    "cappuccino": {
+    "Cappuccino": {
         "water": 250,
         "coffee": 24,
         "milk": 100,
         # "cost": 3.00,
     },
-    "espresso": {
+    "Espresso": {
         "water": 50,
         "coffee": 18,
         # "cost": 1.50,
     },
-    "latte": {
+    "Latte": {
         "water": 200,
         "coffee": 24,
         "milk": 150,
@@ -28,13 +28,14 @@ coffee_recipes = {
 
 
 def get_coffee_choice():
+    """Returns coffee name in title case"""
     global coffee_menu
     print("=====================================================")
     print("Menu:")
     for (coffee, price) in coffee_menu.items():
         print(f"{coffee}, ${price:.2f}")
     customer_choice = input(f"What would you like to drink? \n")
-    return customer_choice.lower()
+    return customer_choice.title()
 
 
 def dispense_coffee():
@@ -50,30 +51,9 @@ def generate_report(available_resources):
 
 
 def get_recipe(coffee):
-    ingredients = []
-    espresso_recipe = {
-        "water": 50,
-        "coffee": 18,
-        # "cost": 1.50,
-    }
-    latte_recipe = {
-        "water": 200,
-        "coffee": 24,
-        "milk": 150,
-        # "cost": 2.50,
-    }
-    cappuccino_recipe = {
-        "water": 250,
-        "coffee": 24,
-        "milk": 100,
-        # "cost": 3.00,
-    }
-    if coffee == "espresso":
-        ingredients = espresso_recipe
-    elif coffee == "latte":
-        ingredients = latte_recipe
-    elif coffee == "cappuccino":
-        ingredients = cappuccino_recipe
+    """Returns ingredients for named coffee"""
+    global coffee_recipes
+    ingredients = coffee_recipes[coffee]
     return ingredients
 
 
@@ -104,6 +84,7 @@ def get_money():
 
 
 def get_price(coffee):
+    """return the price of the coffee"""
     global coffee_menu
     price = coffee_menu[coffee]
     return price
