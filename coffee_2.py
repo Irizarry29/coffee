@@ -152,4 +152,3 @@ if __name__ == "__main__":
 
 # TODO: report should show current money earned
 # TODO: Inventory should be reduced when coffee is made
-# TODO: Fix Caps on Menu
